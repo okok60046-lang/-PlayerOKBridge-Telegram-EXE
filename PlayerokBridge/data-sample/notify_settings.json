@@ -1,0 +1,12 @@
+{
+  "msg_buyer": true,
+  "msg_support": true,
+  "msg_system": true,
+  "deal_new": true,
+  "deal_confirmed": true,
+  "deal_refund": true,
+  "deal_problem": true,
+  "review": true,
+  "unfreeze": true,
+  "autoreply": true
+}

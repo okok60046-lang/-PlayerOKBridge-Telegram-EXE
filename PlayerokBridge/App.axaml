@@ -1,0 +1,14 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PlayerokBridge.App"
+             RequestedThemeVariant="Dark">
+  <Application.Styles>
+    <FluentTheme />
+
+    <!-- Impact has very thick strokes; force grayscale antialiasing so small text
+         is rendered smoothly instead of looking jagged/pixelated. -->
+    <Style Selector="TextBlock">
+      <Setter Property="RenderOptions.TextRenderingMode" Value="Antialias" />
+    </Style>
+  </Application.Styles>
+</Application>

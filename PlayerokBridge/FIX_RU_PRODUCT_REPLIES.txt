@@ -1,0 +1,21 @@
+Исправление русских автоответов по товарам
+
+Причина: bot.py запускается с PRODUCT_REPLIES_FILE, указывающим на
+%AppData%\PlayerokBridge\product_replies.json, но data-sample\product_replies.json
+из комплекта ранее не переносился в эту папку. Поэтому на чистой установке бот
+использовал только встроенный короткий список DEFAULT_PRODUCT_REPLIES.
+
+Что изменено:
+- при первом запуске из data-sample\product_replies.json импортируются отсутствующие
+  записи в %AppData%\PlayerokBridge\product_replies.json;
+- уже существующие ответы и их тексты не перезаписываются;
+- импорт выполняется один раз (маркер .product_replies_seed_v1);
+- data-sample\product_replies.json копируется в папку публикации рядом с EXE.
+
+Сборка Windows:
+  dotnet publish -c Release -r win-x64 --self-contained -p:PublishSingleFile=true
+
+Важно: в опубликованной папке должны находиться bot.py и папка data-sample с
+product_replies.json. После публикации запустите EXE. Если у вас уже есть
+product_replies.json в %AppData%\PlayerokBridge, новые шаблоны будут добавлены,
+а существующие сохранены.
